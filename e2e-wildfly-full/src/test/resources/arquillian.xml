@@ -5,6 +5,10 @@
 
     <defaultProtocol type="Servlet 3.0" />
 
+    <extension qualifier="webdriver">
+        <property name="browser">firefox</property>
+    </extension>
+
     <container qualifier="wildfly" default="true">
         <configuration>
             <property name="javaHome">${java.home}</property>
