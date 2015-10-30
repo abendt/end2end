@@ -1,0 +1,1 @@
+Container: Wildfly + Camel Integration (https://wildflyext.gitbooks.io/wildfly-camel/content/start/index.html)
