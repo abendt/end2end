@@ -1,5 +1,6 @@
 package file;
 
+import org.apache.camel.Message;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.cdi.ContextName;
 
@@ -29,6 +30,10 @@ public class CamelRouteBuilder extends RouteBuilder {
         System.out.println("OUT: " + outDir);
 
         from("file:" + inDir + "?runLoggingLevel=DEBUG")
+                .process(exchange -> {
+                    Message in = exchange.getIn();
+                    in.setBody("Hello " + in.getBody(String.class) + "!");
+                })
         .to("log:e2e.camel?level=DEBUG")
                 .to("file:"+outDir);
     }

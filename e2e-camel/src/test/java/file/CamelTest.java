@@ -1,6 +1,8 @@
 package file;
 
+import com.google.common.base.Charsets;
 import com.google.common.collect.Iterables;
+import com.google.common.io.Files;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -32,16 +34,21 @@ public class CamelTest {
 
     @Test
     public void fileIsCopiedFromInFolderToOut() throws Exception {
-        String name = givenFileExists();
+        String name = givenFileWithContent("World");
 
-        await().until(() -> new File(outFolder, name).exists());
+        File expectedFile = new File(outFolder, name);
+
+        await().until(() -> {
+            return expectedFile.exists();
+        });
+
+        assertThat(expectedFile).hasContent("Hello World!");
     }
 
-    private String givenFileExists() throws IOException {
+    private String givenFileWithContent(String content) throws IOException {
         String name = System.currentTimeMillis() + "-file.txt";
         File file = new File(inFolder, name);
-        boolean fileWasCreated = file.createNewFile();
-        assertThat(fileWasCreated).isTrue();
+        Files.write(content, file, Charsets.UTF_8);
 
         return name;
     }

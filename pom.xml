@@ -16,6 +16,7 @@
       <module>e2e-wildfly-full</module>
       <module>e2e-camel</module>
       <module>e2e-spock</module>
+      <module>e2e-integration</module>
     </modules>
 
 </project>
