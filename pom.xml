@@ -17,6 +17,7 @@
       <module>e2e-camel</module>
       <module>e2e-spock</module>
       <module>e2e-integration</module>
+      <module>e2e-junit</module>
     </modules>
 
 </project>

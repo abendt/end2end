@@ -12,6 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <wildfly.version>8.2.1.Final</wildfly.version>
     </properties>
 
     <build>
@@ -51,7 +52,7 @@
                                 <artifactItem>
                                     <groupId>org.wildfly</groupId>
                                     <artifactId>wildfly-dist</artifactId>
-                                    <version>8.2.0.Final</version>
+                                    <version>${wildfly.version}</version>
                                     <type>zip</type>
                                     <overWrite>false</overWrite>
                                     <outputDirectory>target</outputDirectory>
@@ -63,7 +64,7 @@
                                     <version>2.3.0</version>
                                     <type>tar.gz</type>
                                     <overWrite>false</overWrite>
-                                    <outputDirectory>target/wildfly-8.2.0.Final</outputDirectory>
+                                    <outputDirectory>target/wildfly-${wildfly.version}</outputDirectory>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
@@ -136,7 +137,7 @@
         <dependency>
             <groupId>org.wildfly</groupId>
             <artifactId>wildfly-arquillian-container-managed</artifactId>
-            <version>8.2.0.Final</version>
+            <version>${wildfly.version}</version>
             <scope>test</scope>
         </dependency>
 

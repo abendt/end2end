@@ -46,5 +46,4 @@ class WebSpec extends GebSpec {
         then:
         page.ensureNameIsDisplayed('World')
     }
-
 }

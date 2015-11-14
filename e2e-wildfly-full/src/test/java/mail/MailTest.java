@@ -39,8 +39,6 @@ public class MailTest {
 
         WebArchive archive = ShrinkWrap.createFromZipFile(WebArchive.class, war);
 
-        System.out.println(archive.toString(true));
-
         return archive;
     }
 
