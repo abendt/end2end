@@ -33,14 +33,14 @@ public class WarTest {
 
         WebArchive archive = ShrinkWrap.createFromZipFile(WebArchive.class, war);
 
-        System.out.println(archive.toString(true));
-
         return archive;
     }
 
     @Test
     public void canAccessWar() throws Exception {
         String content = Resources.toString(new URL(baseURL, "HelloWorld"), Charsets.UTF_8);
+
+        System.out.println(content);
 
         assertThat(content).contains("Hello World");
     }

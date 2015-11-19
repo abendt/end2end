@@ -17,7 +17,9 @@ import java.net.URL;
 
 import static com.jayway.restassured.RestAssured.*;
 import static com.jayway.restassured.matcher.RestAssuredMatchers.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(Arquillian.class)
 
@@ -40,16 +42,10 @@ public class RestTest {
     public void canAccessWar() throws Exception {
         String content = Resources.toString(jsonUrl(), Charsets.UTF_8);
 
-        System.out.println(content);
-
-        get(jsonUrl()).then().body("result", equalTo("Hello World!"));
+        assertTrue(content.contains("Hello World!"));
     }
 
     private URL jsonUrl() {
-        try {
-            return new URL(baseURL, "rest/json");
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
+        return baseURL;
     }
 }

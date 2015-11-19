@@ -55,7 +55,6 @@ public class MailTest {
                 "dinner party?",
                 "may i invite you to dinner tonight?");
 
-        greenMail.waitForIncomingEmail(1);
 
         Message[] messages = greenMail.getReceivedMessages();
 

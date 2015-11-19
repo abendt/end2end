@@ -36,10 +36,6 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19</version>
-
-                <configuration>
-                    <excludedGroups>category.Ongoing</excludedGroups>
-                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CamelTest {
 
     static File inFolder = new File(projectFolder(), "in-folder");
-    static File outFolder = new File(projectFolder(), "out-folder");
+    static File outFolder = new File(projectFolder(), "output-folder");
 
     @Deployment(testable = false)
     public static JavaArchive createTestArchive() {

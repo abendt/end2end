@@ -10,7 +10,7 @@ public class HelloWorldRouteBuilder extends RouteBuilder {
         from("direct:in")
                 .process(exchange -> {
                     Message in = exchange.getIn();
-                    in.setBody("Hello " + in.getBody(String.class) + "!");
+                    in.setBody("Hallo " + in.getBody(String.class) + "!");
                 })
                 .to("mock:out");
     }

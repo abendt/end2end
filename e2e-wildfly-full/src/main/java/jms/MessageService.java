@@ -12,7 +12,7 @@ public class MessageService {
     @JMSConnectionFactory("java:/JmsXA")
     private JMSContext context;
 
-    @Resource(lookup = "java:/jms/queue/DemoQueue")
+    @Resource(lookup = "java:/jms/DemoQueue")
     private Queue queue;
 
     public void sendHello(String name) {

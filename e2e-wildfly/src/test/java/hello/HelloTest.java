@@ -22,7 +22,6 @@ public class HelloTest {
     public static JavaArchive createTestArchive() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addClass(HelloService.class)
-                .addClass(OtherService.class)
                 .addPackages(true, "org.assertj.core")
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }

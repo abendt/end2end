@@ -10,16 +10,12 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RestClientTest {
+
     @Rule
     public WireMockRule wireMockRule = new WireMockRule();
 
     @Test
     public void canSayHelloTo() throws Exception {
-        wireMockRule.stubFor(get(urlEqualTo("/helloService"))
-                .willReturn(aResponse()
-                        .withHeader("Content-Type", "text/plain")
-                        .withBody("Hello World!")));
-
         String result = new RestClient().sayHelloTo();
 
         assertThat(result).isEqualTo("Hello World!");

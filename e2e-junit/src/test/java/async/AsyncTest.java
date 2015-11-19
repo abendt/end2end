@@ -4,14 +4,14 @@ import org.junit.Test;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static com.jayway.awaitility.Awaitility.await;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AsyncTest {
 
     AtomicBoolean value = new AtomicBoolean(false);
 
     @Test
-    public void canUseAwaitility() {
+    public void canUseAwaitility() throws Exception {
         new Thread() {
             @Override
             public void run() {
@@ -19,6 +19,8 @@ public class AsyncTest {
             }
         }.start();
 
-        await().untilTrue(value);
+        Thread.sleep(1000);
+
+        assertThat(value.get()).isTrue();
     }
 }

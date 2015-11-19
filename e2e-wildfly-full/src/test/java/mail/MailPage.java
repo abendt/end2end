@@ -27,7 +27,5 @@ public class MailPage {
         this.from.sendKeys(from);
         this.subject.sendKeys(subject);
         this.body.sendKeys(body);
-
-        sendButton.click();
     }
 }
